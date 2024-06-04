@@ -10,8 +10,10 @@ public class PlayerMovement : MonoBehaviour
 
     public SplineContainer track;
 
-    public float speed = 5f;
-
+    public float speed;
+    public float max_speed;
+    public float velocity;
+    
     public float position = 0;
 
     public int current_spline = 0;
@@ -32,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
                 if(i != current_spline){
                     foreach(BezierKnot knot in track.Splines[i].Knots){
 
-                        if(Vector3.Distance(this.transform.position,track.transform.TransformPoint(knot.Position)) < 0.1f){
+                        if(Vector3.Distance(this.transform.position,track.transform.TransformPoint(knot.Position)) < 0.2f){
                             current_spline = i;
                             SplineUtility.GetNearestPoint(track.Splines[i],track.transform.InverseTransformPoint(this.transform.position), out float3 nearest, out float t,16,16);
 
@@ -55,11 +57,26 @@ public class PlayerMovement : MonoBehaviour
 
         //Debug.Log(speed/lengths[0] + " " + speed/lengths[1]);
 
-        if(Input.GetKey(KeyCode.UpArrow)){
+        /*if(Input.GetKey(KeyCode.UpArrow)){
             position += speed * Time.deltaTime / lengths[current_spline];
         }else if(Input.GetKey(KeyCode.DownArrow)){
             position -= speed * Time.deltaTime / lengths[current_spline];
+        }*/
+        
+        if(Input.GetKey(KeyCode.UpArrow)){
+            velocity += speed * Time.deltaTime;
+        }else if(Input.GetKey(KeyCode.DownArrow)){
+            velocity -= speed * Time.deltaTime;
         }
+        else{
+            velocity *= Mathf.Pow(0.0001f, Time.deltaTime);
+        }
+
+        velocity = Mathf.Clamp(velocity, -max_speed, max_speed);
+        velocity = Mathf.Floor(velocity * 1000) / 1000;
+        Debug.Log(velocity);
+
+        position += velocity * Time.deltaTime / lengths[current_spline];
 
         if(Input.GetKeyDown(KeyCode.F)){
             SwapTracks();
