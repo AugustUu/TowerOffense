@@ -24,7 +24,7 @@ public class BulletShoot : MonoBehaviour
     {
         if (!checks_distance)
         {
-            InvokeRepeating("Shoot", 0, shoot_dealy);
+            InvokeRepeating("Shoot", shoot_dealy, shoot_dealy);
         }
     }
     void Update()
@@ -37,7 +37,7 @@ public class BulletShoot : MonoBehaviour
                 if (!shooting)
                 {
                     shooting = true;
-                    InvokeRepeating("Shoot", 0, shoot_dealy);
+                    InvokeRepeating("Shoot", shoot_dealy, shoot_dealy);
                 }
             }
             else if (shooting)
@@ -59,6 +59,7 @@ public class BulletShoot : MonoBehaviour
                 for (int i = 0; i < 6; i++)
                 {
                     Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, i * 60));
+                    Debug.Log("aa");
                 }
                 break;
         }
