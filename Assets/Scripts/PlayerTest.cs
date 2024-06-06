@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerTest : MonoBehaviour
 {
     public Camera cam;
+    public int speed = 5;
     void Start()
     {
         transform.position = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -16,7 +17,7 @@ public class PlayerTest : MonoBehaviour
     {
         Vector3 mouse_pos = cam.ScreenToWorldPoint(Input.mousePosition);
         mouse_pos.z = 0;
-        transform.position += Vector3.ClampMagnitude(mouse_pos - transform.position, 0.5f);
+        transform.position += Vector3.ClampMagnitude(mouse_pos - transform.position, speed / 10f);
     }
 
     void OnCollisionEnter2D(){
