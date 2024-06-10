@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b36ab5b5a7c42a299e1bfd63490273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1843230905112004760, guid: b3f9a3808ff6949ff89b6f7995c80557, type: 3}
-  shoot_dealy: 5
+  bullet: {fileID: 1843230905112004760, guid: 579eb70407d604edb8493dc6b99f71db, type: 3}
+  shoot_dealy: 1
   player: {fileID: 0}
   turret_type: 1
   checks_distance: 0
