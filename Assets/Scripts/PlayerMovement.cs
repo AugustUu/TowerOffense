@@ -96,7 +96,6 @@ public class PlayerMovement : MonoBehaviour
         float dotProduct = Vector3.Dot(movement.normalized, forward.normalized);
 
 
-        position += speed * dotProduct * Time.deltaTime / lengths[current_spline];
 
 
         foreach(var test in splits[current_spline]){
@@ -108,24 +107,52 @@ public class PlayerMovement : MonoBehaviour
 
                 float dotProduct2 = Vector3.Dot(movement.normalized, forward2.normalized);
 
-                float new_pos = position + (speed * dotProduct * Time.deltaTime / lengths[current_spline]);
-                float new_pos2 = t + (speed * dotProduct2 * Time.deltaTime / lengths[test.Item2]);
+                //float new_pos =  Math.Clamp(position + (speed * dotProduct * 0.1f / lengths[current_spline]),0,1);
+                //float new_pos2 = Math.Clamp(t + (speed * dotProduct2 * 0.1f / lengths[test.Item2]),0,1);
+
+                
 
                 //if(Math.Abs(dotProduct) < Math.Abs(dotProduct2) && ((new_pos2*1.1 < 1 && new_pos2 > t) || (new_pos2*1.1 > 0  && new_pos2 < t)) ){
-                if (Math.Abs(dotProduct) < Math.Abs(dotProduct2)){
-                    if(!(new_pos2*1.1f > 1 && new_pos2 > t) && !(new_pos2*1.1f < 0 && new_pos2 < t)){
+                if(movement != Vector3.zero){
+                    Debug.DrawLine(this.transform.position,this.transform.position + movement,Color.blue);
+                    Debug.DrawLine(this.transform.position,this.transform.position + forward.normalized,Color.green);
+                    Debug.DrawLine(this.transform.position,this.transform.position + forward2.normalized,Color.red);
+
+/*
+                    float player_angle = Vector3.Angle(Vector3.zero - movement,Vector3.right);
+                    float player_angle_test = (float)Math.Atan2(movement.y,movement.x);
+
+                    Debug.Log(movement + " " + player_angle + " " + player_angle_test);
+                    float track_angle = Vector3.Angle(Vector3.zero - forward.normalized,Vector3.right);
+                    float track2_angle = Vector3.Angle(Vector3.zero - forward2.normalized,Vector3.right);
+
+                    float angleDiffWithTrack = Mathf.Abs(Mathf.DeltaAngle(player_angle, track_angle));
+                    float angleDiffWithTrack2 = Mathf.Abs(Mathf.DeltaAngle(player_angle, track2_angle));
+*/
+
+                    //Debug.Log(player_angle + " " + angleDiffWithTrack + " " + angleDiffWithTrack2);
+
+
+                    
+   
+                    
+
+
+                    if(dotProduct < dotProduct2){
+                        Debug.Log(Vector3.Angle(Vector3.zero,forward.normalized) + " " + Vector3.Angle(Vector3.zero,forward2.normalized));
                         current_spline = test.Item2;
                         position = t;
                     }else{
-                        //Debug.Log("A" + new_pos2 + " " + dotProduct2);
+                        //Debug.Log("B" + dotProduct + " " + dotProduct2);
                     }
-                }else{
-                    //Debug.Log("B" + dotProduct + " " + dotProduct2);
                 }
             }
         }
 
+        position += speed * dotProduct * Time.deltaTime / lengths[current_spline];
+
         position = Math.Clamp(position,0,1);
+
         this.transform.position = track.EvaluatePosition(current_spline,position);
 
     }
