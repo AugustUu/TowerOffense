@@ -132,13 +132,33 @@ public class PlayerMovement : MonoBehaviour
 
                     //Debug.Log(player_angle + " " + angleDiffWithTrack + " " + angleDiffWithTrack2);
 
+                    Vector3 adjusted_forward = forward;
+                    Vector3 adjusted_forward2 = forward2;
 
+                    if(position > 0.9){
+                        adjusted_forward *= -1;
+                    }else if(position > 0.1){
+                        if(Vector3.Angle(movement, adjusted_forward) > Vector3.Angle(movement, -adjusted_forward)){
+                            adjusted_forward *= -1;
+                        }
+                    }
+
+                    if(t > 0.9){
+                        adjusted_forward2 *= -1;
+                    }else if(t > 0.1){
+                        if(Vector3.Angle(movement, adjusted_forward2) > Vector3.Angle(movement, -adjusted_forward2)){
+                            adjusted_forward2 *= -1;
+                        }
+                    }
                     
+
+
+
    
                     
 
 
-                    if(dotProduct < dotProduct2){
+                    if(Vector3.Angle(movement, adjusted_forward2) < Vector3.Angle(movement, adjusted_forward)){
                         Debug.Log(Vector3.Angle(Vector3.zero,forward.normalized) + " " + Vector3.Angle(Vector3.zero,forward2.normalized));
                         current_spline = test.Item2;
                         position = t;
