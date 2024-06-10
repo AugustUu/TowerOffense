@@ -30,7 +30,7 @@ public class TurretScript : MonoBehaviour
     {
         if (!checks_distance)
         {
-            InvokeRepeating("Shoot", shoot_dealy, shoot_dealy);
+            InvokeRepeating("Shoot", 0.5f, shoot_dealy);
         }
     }
     void Update()
@@ -49,7 +49,7 @@ public class TurretScript : MonoBehaviour
                     shooting = true;
                     if (shoots)
                     {
-                        InvokeRepeating("Shoot", shoot_dealy, shoot_dealy);
+                        InvokeRepeating("Shoot", 0.5f, shoot_dealy);
                     }
                     else
                     {
