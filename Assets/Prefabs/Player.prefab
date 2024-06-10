@@ -101,5 +101,5 @@ MonoBehaviour:
   speed: 5
   max_speed: 5
   velocity: 0
-  position: 0
+  position: 0.00001
   current_spline: 0

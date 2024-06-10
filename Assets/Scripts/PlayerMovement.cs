@@ -29,23 +29,16 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log(spline.GetLength());
         }
         Debug.Log(track.Splines.Count);
-        if (track.Splines.Count > 1)
-        {
-            for (int i = 0; i < track.Splines.Count; i++)
-            {
-                foreach (BezierKnot knot in track.Splines[i].Knots)
-                {
-                    for (int v = 0; v < track.Splines.Count; v++)
-                    {
-                        if (v != i)
-                        {
-                            foreach (BezierKnot knot2 in track.Splines[v].Knots)
-                            {
+        if (track.Splines.Count > 1){
+            for (int i = 0; i < track.Splines.Count; i++){
+                foreach (BezierKnot knot in track.Splines[i].Knots){
+                    for (int v = 0; v < track.Splines.Count; v++){
+                        if (v != i){
+                            foreach (BezierKnot knot2 in track.Splines[v].Knots){
                                 Vector3 pos1 = track.transform.TransformPoint(knot.Position);
                                 Vector3 pos2 = track.transform.TransformPoint(knot2.Position);
 
-                                if (Vector3.Distance(pos1, pos2) < 0.2f)
-                                {
+                                if (Vector3.Distance(pos1, pos2) < 0.2f){
                                     Debug.Log(i + " " + pos1 + " " + v);
                                     if (!splits.ContainsKey(i))
                                     {
@@ -62,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+        
+        Debug.Log(splits.Count);
 
 
     }
