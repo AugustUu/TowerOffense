@@ -197,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
 
         position += speed * dotProduct * Time.deltaTime / lengths[current_spline];
 
-        position = Math.Clamp(position,0,1);
+        position = Math.Clamp(position,0.0001f,0.999f);
 
         this.transform.position = track.EvaluatePosition(current_spline,position);
 
