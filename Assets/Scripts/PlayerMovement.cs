@@ -12,8 +12,6 @@ public class PlayerMovement : MonoBehaviour
     public SplineContainer track;
 
     public float speed;
-    public float max_speed;
-    public float velocity;
     
     public float position = 0;
 
@@ -199,9 +197,18 @@ public class PlayerMovement : MonoBehaviour
 
         position += speed * dotProduct * Time.deltaTime / lengths[current_spline];
 
-        position = Math.Clamp(position,0,1);
+        position = Math.Clamp(position,0.0001f,0.999f);
 
         this.transform.position = track.EvaluatePosition(current_spline,position);
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (!other.gameObject.CompareTag("Finish"))
+        {
+            current_spline = 0;
+            position = 0;
+        }
     }
 }

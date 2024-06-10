@@ -55,7 +55,7 @@ public class TurretScript : MonoBehaviour
                     {
                         if (turret_type == TurretType.slow_field_guy)
                         {
-                            player.GetComponent<PlayerTest>().speed = 2;
+                            player.GetComponent<PlayerMovement>().speed = 3;
                         }
                     }
                 }
@@ -71,7 +71,7 @@ public class TurretScript : MonoBehaviour
                 {
                     if (turret_type == TurretType.slow_field_guy)
                     {
-                        player.GetComponent<PlayerTest>().speed = 5;
+                        player.GetComponent<PlayerMovement>().speed = 5;
                     }
                 }
             }
