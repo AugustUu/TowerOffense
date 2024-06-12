@@ -7,6 +7,7 @@ public class BulletScript : MonoBehaviour
     public float speed;
     public bool decel;
     private float start_time;
+    public float despawn_time;
     void Start()
     {
         start_time = Time.time;
@@ -20,7 +21,7 @@ public class BulletScript : MonoBehaviour
         {
             speed *= Mathf.Pow(0.05f, Time.deltaTime);
         }
-        if (Time.time - start_time > 5)
+        if (Time.time - start_time > despawn_time)
         {
             Destroy(gameObject);
         }

@@ -136,6 +136,7 @@ MonoBehaviour:
   checks_distance: 0
   shoots: 1
   spread: 0
-  bullet_speed: 5
+  turn_angle: 0
+  bullet_speed: 4
   spawn_parent: {fileID: 0}
   radius: 4
