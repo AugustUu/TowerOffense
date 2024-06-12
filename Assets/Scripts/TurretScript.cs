@@ -10,7 +10,8 @@ public class TurretScript : MonoBehaviour
         shoot_guy,
         tack_shoot_guy,
         triple_shoot_guy,
-        slow_field_guy
+        slow_field_guy,
+        double_shoot_guy
     }
     public GameObject bullet;
     public float shoot_dealy;
@@ -19,6 +20,7 @@ public class TurretScript : MonoBehaviour
     public bool checks_distance;
     public bool shoots;
     public float spread;
+    public int turn_angle;
     public int bullet_speed;
 
     public Transform spawn_parent;
@@ -80,6 +82,7 @@ public class TurretScript : MonoBehaviour
 
     void Shoot()
     {
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, turn_angle));
         switch (turret_type)
         {
             case TurretType.shoot_guy:
@@ -88,13 +91,17 @@ public class TurretScript : MonoBehaviour
             case TurretType.tack_shoot_guy:
                 for (int i = 0; i < 6; i++)
                 {
-                    SpawnBullet(Quaternion.Euler(0, 0, i * 60));
+                    SpawnBullet(Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, i * 60)));
                 }
                 break;
             case TurretType.triple_shoot_guy:
                 SpawnBullet(transform.rotation);
                 SpawnBullet(Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 30)));
                 SpawnBullet(Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, -30)));
+                break;
+            case TurretType.double_shoot_guy:
+                SpawnBullet(transform.rotation);
+                SpawnBullet(Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 180)));
                 break;
         }
     }
