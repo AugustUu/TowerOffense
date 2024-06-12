@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3558794315137450545, guid: 974f88d18a3bf48bfaa91492a6a0379b, type: 3}
       propertyPath: next_scene
-      value: Lvl9
+      value: lvl9
       objectReference: {fileID: 0}
     - target: {fileID: 4806401396223962588, guid: 974f88d18a3bf48bfaa91492a6a0379b, type: 3}
       propertyPath: m_Name
