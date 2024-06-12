@@ -9787,6 +9787,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 52387055}
     - target: {fileID: 5153597702676216962, guid: 797a3fc5a4756470882ab8e4cd70b0d3, type: 3}
+      propertyPath: turn_angle
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153597702676216962, guid: 797a3fc5a4756470882ab8e4cd70b0d3, type: 3}
       propertyPath: shoot_dealy
       value: 0.6
       objectReference: {fileID: 0}
