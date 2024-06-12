@@ -207,8 +207,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Finish"))
         {
-            //current_spline = 0;
-            //position = 0;
+            current_spline = 0;
+            position = 0;
         }
     }
 }
