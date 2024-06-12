@@ -395,9 +395,13 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1981420731}
+    - target: {fileID: 3713176061089052587, guid: 61b908b05c888488ea3e94ff0dab000b, type: 3}
+      propertyPath: bullet_speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3918943912037834972, guid: 61b908b05c888488ea3e94ff0dab000b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.06
+      value: -3.85
       objectReference: {fileID: 0}
     - target: {fileID: 3918943912037834972, guid: 61b908b05c888488ea3e94ff0dab000b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1134,7 +1138,7 @@ PrefabInstance:
       objectReference: {fileID: 1981420731}
     - target: {fileID: 4972266083373017594, guid: 0ebb36b4ce6df4029835551f43864883, type: 3}
       propertyPath: shoot_dealy
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7012586146239103865, guid: 0ebb36b4ce6df4029835551f43864883, type: 3}
       propertyPath: m_Name
@@ -1146,7 +1150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9179265150070544221, guid: 0ebb36b4ce6df4029835551f43864883, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.82
+      value: -4.14
       objectReference: {fileID: 0}
     - target: {fileID: 9179265150070544221, guid: 0ebb36b4ce6df4029835551f43864883, type: 3}
       propertyPath: m_LocalPosition.z
