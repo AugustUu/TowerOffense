@@ -1893,7 +1893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4972266083373017594, guid: 0ebb36b4ce6df4029835551f43864883, type: 3}
       propertyPath: spread
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4972266083373017594, guid: 0ebb36b4ce6df4029835551f43864883, type: 3}
       propertyPath: shoot_dealy
