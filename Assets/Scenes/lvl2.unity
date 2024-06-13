@@ -8987,6 +8987,10 @@ PrefabInstance:
       propertyPath: radius
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1491032773799647285, guid: e1864241166044638af46222b70d88d5, type: 3}
+      propertyPath: bullet_speed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2548567294643393650, guid: e1864241166044638af46222b70d88d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.47
@@ -9654,6 +9658,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1858216873}
+    - target: {fileID: 5153597702676216962, guid: 797a3fc5a4756470882ab8e4cd70b0d3, type: 3}
+      propertyPath: turn_angle
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7137914495673102380, guid: 797a3fc5a4756470882ab8e4cd70b0d3, type: 3}
       propertyPath: m_Name
       value: tack machine turret
