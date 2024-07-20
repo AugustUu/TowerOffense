@@ -87,7 +87,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            current_spline = 0;
+            position = 0;
+        }
 
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
