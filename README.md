@@ -1,5 +1,9 @@
 ## Tower Offense
 
+## Play The Game On ItchIO
+
+https://hberneis.itch.io/tower-offense
+
 ## Overview
 
 Tower Offense is a game based on a tower defense but the roles are switched. The player runs on the track while turrets try to stop them.
