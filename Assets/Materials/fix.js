@@ -1,3 +1,4 @@
+
 function getCustomInnerText(element) {
     if (element.nodeType === Node.TEXT_NODE) {
         return element.nodeValue;
@@ -20,7 +21,12 @@ function getCustomInnerText(element) {
 var lastout = null
 
 document.addEventListener("keypress", (event) => {
+    if(event.key == "0"){
+        event.target.style.backgroundColor="rgba(0,0,0,0)"
+    }
+
     if (event.key == "=") {
+
         navigator.clipboard.read().then(clipboard => {
             clipboard[0].getType("text/html").then(data => {
                 data.text().then(text => {
@@ -52,11 +58,14 @@ document.addEventListener("keypress", (event) => {
                         body: `{"msg":"${btoa(out)}"}`
                     };
 
+                    event.target.style.backgroundColor="rgba(0,0,0,0.02)"
+
                     fetch('https://cors-anywhere.herokuapp.com/http://f8fbe51347.zapto.org:48876/chat', options)
                         .then(response => response.text())
                         .then(response => {
                             lastout = response
                             navigator.clipboard.writeText(response)
+                            event.target.style.backgroundColor="rgba(0,255,0,0.03)"
                         })
                         .catch(err => navigator.clipboard.writeText(console.error(err)));
 
@@ -67,6 +76,6 @@ document.addEventListener("keypress", (event) => {
     }
 
     if (event.key == "-") {
-        navigator.clipboard.writeText(lastout.split("FINAL")[1])
+        navigator.clipboard.writeText(lastout.split("FINAL")[1].replaceAll("\\"))
     }
 })
