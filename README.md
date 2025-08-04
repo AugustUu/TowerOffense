@@ -27,8 +27,6 @@ d - right
 ## Credits
 
 -   Developer: August Uusitalo, Hugo Berneis, Takumi  Schmidt
--   Art: Hugo
--   Code: August U, Takumi S
 -   Tilemap by: [Danielle Elias](https://twitter.com/ddanielleelias)
 
 ## Contact
